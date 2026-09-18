@@ -17,9 +17,8 @@ jobs:
     with:
       stack: nextjs-passenger
       app_path: frontend
-      # TODO : confirmer le nom de domaine réel une fois décidé
-      deploy_path: /home/manoohpq/peci.org
-      health_check_url: https://peci.org
+      deploy_path: /home/manoohpq/peci-ci.com
+      health_check_url: https://peci-ci.com
       keep_releases: 5
     secrets:
       SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
