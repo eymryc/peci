@@ -10,6 +10,8 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/ci-frontend.yml'
+  # Permet à deploy-frontend.yml de l'appeler via `uses: ./.github/workflows/ci-frontend.yml`
+  workflow_call:
 
 jobs:
   test:

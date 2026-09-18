@@ -10,6 +10,8 @@ on:
     paths:
       - 'backend/**'
       - '.github/workflows/ci-backend.yml'
+  # Permet à deploy-backend.yml de l'appeler via `uses: ./.github/workflows/ci-backend.yml`
+  workflow_call:
 
 jobs:
   test:
