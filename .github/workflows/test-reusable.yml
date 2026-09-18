@@ -1,0 +1,16 @@
+name: Test reusable
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: eymryc/xsel-deploy-mutualise/.github/workflows/deploy.yml@main
+    with:
+      stack: laravel
+      deploy_path: /tmp/test
+    secrets:
+      SSH_HOST: x
+      SSH_PORT: x
+      SSH_USER: x
+      SSH_PRIVATE_KEY: x
