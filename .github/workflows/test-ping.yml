@@ -1,0 +1,8 @@
+name: Test ping
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call:
+    uses: eymryc/xsel-deploy-mutualise/.github/workflows/ping.yml@main
