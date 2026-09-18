@@ -1,0 +1,28 @@
+name: Deploy backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci-backend.yml
+
+  deploy:
+    needs: ci
+    uses: eymryc/xsel-deploy-mutualise/.github/workflows/deploy.yml@main
+    with:
+      stack: laravel
+      app_path: backend
+      # TODO : chemin réel sur le serveur cPanel (ex. /home/<user>/api.peci.org)
+      deploy_path: /home/CHANGEME/api.peci.org
+      health_check_url: https://api.peci.org/up
+      keep_releases: 5
+    secrets:
+      SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
+      SSH_PORT: ${{ secrets.DEPLOY_SSH_PORT }}
+      SSH_USER: ${{ secrets.DEPLOY_SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}

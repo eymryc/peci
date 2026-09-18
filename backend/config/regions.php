@@ -1,0 +1,38 @@
+<?php
+
+// Official regions of Côte d'Ivoire, used to power the interactive map.
+// Project.region is matched against the "slug" below.
+return [
+    ['slug' => 'abidjan', 'name' => 'Abidjan'],
+    ['slug' => 'agneby-tiassa', 'name' => 'Agnéby-Tiassa'],
+    ['slug' => 'bafing', 'name' => 'Bafing'],
+    ['slug' => 'bagoue', 'name' => 'Bagoué'],
+    ['slug' => 'belier', 'name' => 'Bélier'],
+    ['slug' => 'bere', 'name' => 'Béré'],
+    ['slug' => 'bounkani', 'name' => 'Bounkani'],
+    ['slug' => 'cavally', 'name' => 'Cavally'],
+    ['slug' => 'folon', 'name' => 'Folon'],
+    ['slug' => 'gbeke', 'name' => 'Gbêkê'],
+    ['slug' => 'gboklè', 'name' => 'Gbôklè'],
+    ['slug' => 'goh', 'name' => 'Gôh'],
+    ['slug' => 'gontougo', 'name' => 'Gontougo'],
+    ['slug' => 'grands-ponts', 'name' => 'Grands-Ponts'],
+    ['slug' => 'guemon', 'name' => 'Guémon'],
+    ['slug' => 'hambol', 'name' => 'Hambol'],
+    ['slug' => 'haut-sassandra', 'name' => 'Haut-Sassandra'],
+    ['slug' => 'iffou', 'name' => 'Iffou'],
+    ['slug' => 'indenie-djuablin', 'name' => 'Indénié-Djuablin'],
+    ['slug' => 'kabadougou', 'name' => 'Kabadougou'],
+    ['slug' => 'lacs', 'name' => 'Lacs'],
+    ['slug' => 'loh-djiboua', 'name' => 'Lôh-Djiboua'],
+    ['slug' => 'marahoue', 'name' => 'Marahoué'],
+    ['slug' => 'moronou', 'name' => 'Moronou'],
+    ['slug' => 'nawa', 'name' => 'Nawa'],
+    ['slug' => 'poro', 'name' => 'Poro'],
+    ['slug' => 'san-pedro', 'name' => 'San-Pédro'],
+    ['slug' => 'sud-comoe', 'name' => 'Sud-Comoé'],
+    ['slug' => 'tchologo', 'name' => 'Tchologo'],
+    ['slug' => 'tonkpi', 'name' => 'Tonkpi'],
+    ['slug' => 'worodougou', 'name' => 'Worodougou'],
+    ['slug' => 'yamoussoukro', 'name' => 'Yamoussoukro'],
+];

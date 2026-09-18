@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+:root {
+  --color-peci-teal: #17a79d;
+  --color-peci-teal-dark: #128077;
+  --color-peci-green: #8ec44c;
+  --color-peci-green-dark: #6fa332;
+  --color-peci-green-light: #a8d873;
+  --color-peci-dark: #17211f;
+  --color-peci-forest: #0d2420;
+  /* Texte secondaire — noir foncé légèrement adouci (et non plus gris moyen)
+     pour rester lisible et uniforme avec les titres en peci-dark partout. */
+  --color-peci-grey: #23302c;
+  --color-peci-grey-light: #f5f8f7;
+  --color-peci-cream: #f7f4ec;
+
+  /* Vert clair en fond de page — remplace le blanc plat pour un rendu plus
+     vivant tout en gardant un contraste excellent avec le texte foncé. Aussi
+     exposé comme `bg-peci-mint` pour teinter les surfaces qui étaient blanches
+     (header, bandeaux...) de la même couleur, de façon cohérente. */
+  --color-peci-mint: #eaf7e2;
+  --background: var(--color-peci-mint);
+  --foreground: var(--color-peci-dark);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-peci-teal: var(--color-peci-teal);
+  --color-peci-teal-dark: var(--color-peci-teal-dark);
+  --color-peci-green: var(--color-peci-green);
+  --color-peci-green-dark: var(--color-peci-green-dark);
+  --color-peci-green-light: var(--color-peci-green-light);
+  --color-peci-dark: var(--color-peci-dark);
+  --color-peci-forest: var(--color-peci-forest);
+  --color-peci-grey: var(--color-peci-grey);
+  --color-peci-grey-light: var(--color-peci-grey-light);
+  --color-peci-cream: var(--color-peci-cream);
+  --color-peci-mint: var(--color-peci-mint);
+
+  --font-sans: var(--font-body);
+  /* Une seule police (Plus Jakarta Sans) pour tout le site : `.font-display`
+     ne change plus que la graisse/taille, jamais la famille — rendu uniforme. */
+  --font-display: var(--font-body);
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(to left, rgba(142, 196, 76, 0.4), transparent 38%),
+    radial-gradient(900px circle at 8% 0%, rgba(142, 196, 76, 0.22), transparent 55%),
+    radial-gradient(800px circle at 100% 12%, rgba(23, 167, 157, 0.14), transparent 55%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-body), sans-serif;
+}
+
+/* Dégradé de marque — le vert occupe davantage de surface pour un rendu plus vivant. */
+.gradient-peci {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-peci-teal) 0%,
+    var(--color-peci-teal) 22%,
+    var(--color-peci-green) 90%
+  );
+}
+
+.gradient-peci-vivid {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-peci-teal-dark) 0%,
+    var(--color-peci-teal) 30%,
+    var(--color-peci-green) 78%,
+    var(--color-peci-green-light) 100%
+  );
+}
+
+.gradient-peci-text {
+  background-image: linear-gradient(120deg, var(--color-peci-teal) 10%, var(--color-peci-green) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container-peci {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .container-peci {
+    padding-inline: 2rem;
+  }
+}
+
+/* Halo pulsant discret pour attirer l'œil sur l'action prioritaire (Faire un don). */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(142, 196, 76, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(142, 196, 76, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.6s ease-in-out infinite;
+}
+
+/* Lent panoramique/zoom pour les visuels plein écran (hero) — donne une
+   impression de mouvement même sans vidéo. */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1%, -1%, 0);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out forwards;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@keyframes float-slow-reverse {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(16px) translateX(-14px);
+  }
+}
+
+.animate-float-slow-reverse {
+  animation: float-slow-reverse 10s ease-in-out infinite;
+}
+
+/* Effet de brillance qui balaie les boutons "primary" au survol. */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 40%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.btn-shimmer:hover::after {
+  transform: translateX(120%);
+}
+
+/* Texture décorative dark-on-dark, inspirée du cercle du logo PECI — utilisée
+   sur les fonds vert forêt (menu plein écran, bandeaux sombres). */
+.pattern-peci-dots {
+  background-image: radial-gradient(circle at center, rgba(142, 196, 76, 0.16) 0, rgba(142, 196, 76, 0.16) 2px, transparent 2.5px),
+    radial-gradient(circle at center, rgba(23, 167, 157, 0.14) 0, rgba(23, 167, 157, 0.14) 1.5px, transparent 2px);
+  background-size: 64px 64px, 64px 64px;
+  background-position: 0 0, 32px 32px;
+}
+
+@keyframes underline-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+/* Barre de progression indéterminée affichée pendant une navigation. */
+@keyframes route-loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+.animate-route-loading {
+  animation: route-loading 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow,
+  .animate-ken-burns,
+  .animate-float-slow,
+  .animate-float-slow-reverse,
+  .animate-spin-slow,
+  .animate-route-loading {
+    animation: none;
+  }
+}
