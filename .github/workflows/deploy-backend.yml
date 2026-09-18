@@ -22,6 +22,10 @@ jobs:
       deploy_path: /home/manoohpq/peci-ci.com/backend
       health_check_url: https://backend.peci-ci.com/up
       keep_releases: 5
+      # Serveur CloudLinux : /usr/bin/php résout en 8.2, le composer.json
+      # du backend exige ^8.3 — voir xsel-deploy-mutualise README.
+      php_bin: /opt/alt/php83/usr/bin/php
+      composer_bin: /opt/alt/php83/usr/bin/composer
     secrets:
       SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
       SSH_PORT: ${{ secrets.DEPLOY_SSH_PORT }}
