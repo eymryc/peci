@@ -17,9 +17,10 @@ jobs:
     with:
       stack: laravel
       app_path: backend
-      # TODO : confirmer le nom réel du sous-domaine API une fois décidé
-      deploy_path: /home/manoohpq/api.peci.org
-      health_check_url: https://api.peci.org/up
+      # cPanel crée le sous-domaine backend.peci-ci.com dans ce dossier
+      # (Domains → peci-ci.com/backend), pas dans un dossier séparé.
+      deploy_path: /home/manoohpq/peci-ci.com/backend
+      health_check_url: https://backend.peci-ci.com/up
       keep_releases: 5
     secrets:
       SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
