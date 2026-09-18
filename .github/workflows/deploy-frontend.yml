@@ -6,6 +6,8 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/deploy-frontend.yml'
+      - '.github/workflows/ci-frontend.yml'
+  workflow_dispatch:
 
 jobs:
   ci:
